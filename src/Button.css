@@ -1,0 +1,18 @@
+.button {
+  width: 80px;
+  height: 40px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: gray;
+}
+
+.button > h3 {
+  padding-top: 10px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
