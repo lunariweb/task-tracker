@@ -1,10 +1,10 @@
 import React from "react";
 import "./Button.css";
 
-const Button = ({ button_title, onClick }) => {
+const Button = ({ onAdd, showAdd, color }) => {
   return (
-    <div className="button" onClick={onClick}>
-      <h3>{button_title}</h3>
+    <div className="button" onClick={onAdd} style={{ backgroundColor: color }}>
+      <h3>{showAdd ? "Close" : "Add"}</h3>
     </div>
   );
 };

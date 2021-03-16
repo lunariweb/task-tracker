@@ -4,11 +4,10 @@ import Header from "./Header";
 import Button from "./Button";
 import Tasks from "./Tasks";
 import { useState } from "react";
+import AddTask from "./AddTask";
 
 const App = () => {
-  const onClick = () => {
-    console.log("clicker");
-  };
+  const [showAddTask, setShowAddTask] = useState(false);
 
   const [tasks, setTasks] = useState([
     {
@@ -26,11 +25,19 @@ const App = () => {
 
     {
       id: 3,
-      text: "Appoinment 333",
+      text: "Appoinment 3",
       day: "feb 7th at 2.30pm",
       reminder: true
     }
   ]);
+
+  //add task fucntion
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000 + 1);
+
+    const newTask = { id, ...task };
+    setTasks([...tasks, newTask]);
+  };
 
   //delete task fucntion
   const deleteTask = (id) => {
@@ -50,7 +57,12 @@ const App = () => {
   return (
     <div className="App">
       <Header title="Task Tracker" />
-      <Button button_title="Add" onClick={onClick} />
+      {showAddTask ? <AddTask onAdd={addTask} /> : ""}
+      <Button
+        color={showAddTask ? "blue" : "green"}
+        showAdd={showAddTask}
+        onAdd={() => setShowAddTask(!showAddTask)}
+      />
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (
