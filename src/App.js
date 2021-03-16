@@ -26,7 +26,7 @@ const App = () => {
 
     {
       id: 3,
-      text: "Appoinment 3",
+      text: "Appoinment 333",
       day: "feb 7th at 2.30pm",
       reminder: true
     }
